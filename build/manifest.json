@@ -1,0 +1,13 @@
+{
+  "id": "feedback-module-restapp",
+  "version": "0.0.1",
+  "name": "Feedback module restapp",
+  "author": "Region Halland",
+  "description": "Feedback module's rest api",
+  "helpUrl": "https://example.com/restapps",
+  "type": "RESTApp",
+  "bundled": true,
+  "storage": {
+    "collectionDataStore": "feedback"
+  }
+}
