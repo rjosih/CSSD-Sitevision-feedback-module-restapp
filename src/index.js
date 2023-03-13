@@ -5,15 +5,9 @@ import storage from '@sitevision/api/server/storage';
 const dataStore = storage.getCollectionDataStore('feedback');
 
 events.on('sv:publishing:publish', (options) => {
-
-  // Fetch the actually node object
-  const pageNode = resourceLocatorUtil.getNodeByIdentifier(options.node);
-
-  const pageId = properties.get(pageNode);
-
   // Get the feedback posts to the pageId
   // 100 can easily be changed to all
-  const feedbackPosts = dataStore.find(`ds.analyzed.pageId:${pageId}`, 100).toArray();
+  const feedbackPosts = dataStore.find(`ds.analyzed.pageId:${options.node}`, 100).toArray();
   for (let i = 0; i < feedbackPosts.length; i++) {
     if (feedbackPosts[i].newPost === true) {
       const newObject = {
